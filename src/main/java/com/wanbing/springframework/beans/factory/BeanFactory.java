@@ -5,5 +5,7 @@ import com.wanbing.springframework.beans.exception.BeansException;
 public interface BeanFactory {
     Object getBean(String beanName) throws BeansException;
 
-    void registerBeanDefinition(BeanDefinition beanDefinition);
+    Boolean containsBean(String name);
+
+    void registerBean(String beanName, Object obj);
 }
