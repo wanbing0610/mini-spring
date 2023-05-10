@@ -7,6 +7,24 @@
     <groupId>com.wanbing0610</groupId>
     <artifactId>mini-spring</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    
+    <packaging>jar</packaging>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 指定编译器级别-->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <!-- 指定在哪个虚拟机上运行 -->
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+    </dependencies>
+
 </project>
