@@ -1,4 +1,4 @@
-package com.wanbing.springframework.beans.test;
+package com.wanbing.springframework.test;
 
 public interface AService {
     void sayHello();

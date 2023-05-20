@@ -2,7 +2,6 @@ package com.wanbing.springframework.beans.factory.config;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PropertyValues {
     private final List<PropertyValue> propertyValues;
@@ -23,9 +22,9 @@ public class PropertyValues {
         this.propertyValues.add(propertyValue);
     }
 
-    public void addPropertyValue(String propertyType, String propertyName, Object propertyValue){
-        addPropertyValue(new PropertyValue(propertyType, propertyName, propertyValue));
-    }
+//    public void addPropertyValue(String propertyType, String propertyName, Object propertyValue){
+//        addPropertyValue(new PropertyValue(propertyType, propertyName, propertyValue, isRef));
+//    }
 
     public void removePropertyValue(PropertyValue propertyValue){
         this.propertyValues.remove(propertyValue);

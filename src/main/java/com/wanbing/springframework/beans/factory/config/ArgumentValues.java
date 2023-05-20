@@ -8,8 +8,8 @@ public class ArgumentValues{
     public ArgumentValues() {
     }
 
-    public void addArgumentValue(Integer key, ArgumentValue newValue){
-        this.argumentValueList.add(key, newValue);
+    public void addArgumentValue(ArgumentValue newValue){
+        this.argumentValueList.add(newValue);
     }
 
     public ArgumentValue getIndexedArgumentValue(int index) {

@@ -8,13 +8,20 @@ import com.wanbing.springframework.core.ClassPathXmlResource;
 import com.wanbing.springframework.core.Resource;
 
 public class ClassPathXmlApplicationContext implements BeanFactory , ApplicationEventPublisher{
-    private final BeanFactory beanFactory;
-    public ClassPathXmlApplicationContext(String fileName) {
+    private final SimpleBeanFactory beanFactory;
+
+    public ClassPathXmlApplicationContext(String fileName){
+        this(fileName,true);
+    }
+    public ClassPathXmlApplicationContext(String fileName, boolean isRefresh) {
         Resource resource = new ClassPathXmlResource(fileName);
         SimpleBeanFactory simpleBeanFactory = new SimpleBeanFactory();
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(simpleBeanFactory);
         this.beanFactory = simpleBeanFactory;
         xmlBeanDefinitionReader.loadBeanDefinitions(resource);
+        if(isRefresh){
+            this.beanFactory.refresh();
+        }
     }
 
     /**

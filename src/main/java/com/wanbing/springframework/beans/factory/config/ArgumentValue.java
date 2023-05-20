@@ -17,12 +17,15 @@ public class ArgumentValue {
      */
     private String name;
 
-    public ArgumentValue(Object value, String type) {
-        this.value = value; this.type = type;
+    public ArgumentValue(String type, Object value) {
+        this.value = value;
+        this.type = type;
     }
 
-    public ArgumentValue(Object value, String type, String name) {
-        this.value = value; this.type = type; this.name = name;
+    public ArgumentValue(String type, String name,Object value) {
+        this.type = type;
+        this.name = name;
+        this.value = value;
     }
 
     public Object getValue() {

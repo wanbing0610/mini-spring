@@ -1,4 +1,4 @@
-package com.wanbing.springframework.beans.test;
+package com.wanbing.springframework.test;
 
 import com.wanbing.springframework.beans.exception.BeansException;
 import com.wanbing.springframework.context.ClassPathXmlApplicationContext;
@@ -6,9 +6,10 @@ import com.wanbing.springframework.context.ClassPathXmlApplicationContext;
 public class Test1 {
     public static void main(String[] args) throws BeansException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/beans.xml");
-        AService aservice = (AService) ctx.getBean("aservice");
-        aservice.sayHello();
-
+        AServiceImpl aService = (AServiceImpl) ctx.getBean("aservice");
+        aService.sayHello();
+        aService.getRef1().sayHello();
+        aService.getRef1().getBbs().say();
     }
 
 }
