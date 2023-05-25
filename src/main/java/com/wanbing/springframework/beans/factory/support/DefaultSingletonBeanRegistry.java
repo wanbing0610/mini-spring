@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 存储单例bean
+ */
 public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
     protected List<String> beanNames = new ArrayList<>();
 

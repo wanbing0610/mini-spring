@@ -1,6 +1,9 @@
 package com.wanbing.springframework.test;
 
+import com.wanbing.springframework.beans.factory.annotation.Autowired;
+
 public class BaseService {
+    @Autowired
     private BaseBaseService bbs;
 
     public BaseBaseService getBbs() {

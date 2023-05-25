@@ -3,7 +3,7 @@ package com.wanbing.springframework.beans.factory.config;
 /**
  * 描述bean关联的属性,通过构造器注入
  */
-public class ArgumentValue {
+public class ConstructorArgumentValue {
     /**
      * 关联的Bean的实例
      */
@@ -17,12 +17,12 @@ public class ArgumentValue {
      */
     private String name;
 
-    public ArgumentValue(String type, Object value) {
+    public ConstructorArgumentValue(String type, Object value) {
         this.value = value;
         this.type = type;
     }
 
-    public ArgumentValue(String type, String name,Object value) {
+    public ConstructorArgumentValue(String type, String name, Object value) {
         this.type = type;
         this.name = name;
         this.value = value;

@@ -14,6 +14,6 @@
     </bean>
 
     <bean id = "baseservice" class="com.wanbing.springframework.test.BaseService">
-        <property type="com.wanbing.springframework.test.BaseBaseService" name="bbs" ref="basebaseService" ></property>
+<!--        <property type="com.wanbing.springframework.test.BaseBaseService" name="bbs" ref="basebaseService" ></property>-->
     </bean>
 </beans>

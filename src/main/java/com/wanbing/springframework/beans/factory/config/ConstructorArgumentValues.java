@@ -2,17 +2,17 @@ package com.wanbing.springframework.beans.factory.config;
 
 import java.util.*;
 
-public class ArgumentValues{
-    private final List<ArgumentValue> argumentValueList = new ArrayList<>();
+public class ConstructorArgumentValues {
+    private final List<ConstructorArgumentValue> argumentValueList = new ArrayList<>();
 
-    public ArgumentValues() {
+    public ConstructorArgumentValues() {
     }
 
-    public void addArgumentValue(ArgumentValue newValue){
+    public void addArgumentValue(ConstructorArgumentValue newValue){
         this.argumentValueList.add(newValue);
     }
 
-    public ArgumentValue getIndexedArgumentValue(int index) {
+    public ConstructorArgumentValue getIndexedArgumentValue(int index) {
         return this.argumentValueList.get(index);
     }
 

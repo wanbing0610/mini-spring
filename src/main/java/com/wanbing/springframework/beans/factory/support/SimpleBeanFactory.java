@@ -1,12 +1,12 @@
-package com.wanbing.springframework.beans.factory;
+package com.wanbing.springframework.beans.factory.support;
 
 import com.wanbing.springframework.beans.exception.BeansException;
-import com.wanbing.springframework.beans.factory.config.ArgumentValue;
-import com.wanbing.springframework.beans.factory.config.ArgumentValues;
+import com.wanbing.springframework.beans.factory.config.BeanDefinition;
+import com.wanbing.springframework.beans.factory.BeanFactory;
+import com.wanbing.springframework.beans.factory.config.ConstructorArgumentValue;
+import com.wanbing.springframework.beans.factory.config.ConstructorArgumentValues;
 import com.wanbing.springframework.beans.factory.config.PropertyValue;
 import com.wanbing.springframework.beans.factory.config.PropertyValues;
-import com.wanbing.springframework.beans.factory.support.BeanDefinitionRegistry;
-import com.wanbing.springframework.beans.factory.support.DefaultSingletonBeanRegistry;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -85,14 +85,14 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
         }
 
         // 构造器生成对象
-        ArgumentValues argumentValues = beanDefinition.getConstructorArgumentValues();
+        ConstructorArgumentValues constructorArgumentValues = beanDefinition.getConstructorArgumentValues();
 
-        if( !argumentValues.isEmpty() ){
-            Class<?>[] paramTypes = new Class<?>[argumentValues.getArgumentCount()];
-            Object[] paramValues = new Object[argumentValues.getArgumentCount()];
+        if( !constructorArgumentValues.isEmpty() ){
+            Class<?>[] paramTypes = new Class<?>[constructorArgumentValues.getArgumentCount()];
+            Object[] paramValues = new Object[constructorArgumentValues.getArgumentCount()];
 
-            for(int i = 0; i < argumentValues.getArgumentCount(); i++){
-                ArgumentValue argumentValue = argumentValues.getIndexedArgumentValue(i);
+            for(int i = 0; i < constructorArgumentValues.getArgumentCount(); i++){
+                ConstructorArgumentValue argumentValue = constructorArgumentValues.getIndexedArgumentValue(i);
                 if("String".equals(argumentValue.getType()) || "java.lang.String".equals(argumentValue.getType()) ){
                     paramTypes[i] = String.class;
                     paramValues[i] = argumentValue.getValue();

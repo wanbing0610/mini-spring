@@ -1,7 +1,4 @@
-package com.wanbing.springframework.beans.factory;
-
-import com.wanbing.springframework.beans.factory.config.ArgumentValues;
-import com.wanbing.springframework.beans.factory.config.PropertyValues;
+package com.wanbing.springframework.beans.factory.config;
 
 public class BeanDefinition {
 
@@ -16,7 +13,7 @@ public class BeanDefinition {
 
     private boolean lazyInit = false;
     private String[] dependsOn;
-    private ArgumentValues constructorArgumentValues;
+    private ConstructorArgumentValues constructorArgumentValues;
 
     private PropertyValues propertyValues;
     private String initMethodName;
@@ -91,12 +88,12 @@ public class BeanDefinition {
         this.dependsOn = dependsOn;
     }
 
-    public ArgumentValues getConstructorArgumentValues() {
+    public ConstructorArgumentValues getConstructorArgumentValues() {
         return constructorArgumentValues;
     }
 
-    public void setConstructorArgumentValues(ArgumentValues constructorArgumentValues) {
-        this.constructorArgumentValues = (constructorArgumentValues != null ? constructorArgumentValues : new ArgumentValues());
+    public void setConstructorArgumentValues(ConstructorArgumentValues constructorArgumentValues) {
+        this.constructorArgumentValues = (constructorArgumentValues != null ? constructorArgumentValues : new ConstructorArgumentValues());
     }
 
     public boolean hasConstructorArgumentValues() {

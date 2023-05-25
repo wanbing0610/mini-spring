@@ -7,9 +7,9 @@ public class Test1 {
     public static void main(String[] args) throws BeansException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/beans.xml");
         AServiceImpl aService = (AServiceImpl) ctx.getBean("aservice");
-        aService.sayHello();
-        aService.getRef1().sayHello();
-        aService.getRef1().getBbs().say();
+//        aService.sayHello();
+//        aService.getRef1().sayHello();
+//        aService.getRef1().getBbs().say();
     }
 
 }

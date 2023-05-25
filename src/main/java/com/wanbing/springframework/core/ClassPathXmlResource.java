@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.Iterator;
 
 /**
- * 定义路径下的资源
+ * xml资源
  */
 public class ClassPathXmlResource implements Resource{
     private final Iterator<Element> elementIterator;
