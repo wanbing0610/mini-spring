@@ -47,14 +47,17 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
         if(singleton == null){
             singleton = this.earlySingletonObjects.get(beanName);
             if( singleton == null){
+                System.out.println("get bean null -------------- " + beanName);
+
                 // 尝试获取BeanDefinition，通过它利用反射进行实例化
                 BeanDefinition beanDefinition = beanDefinitions.get(beanName);
-                if(beanDefinition == null){
-                    throw new BeansException("no BeanDefinitions");
-                }
                 singleton=createBean(beanDefinition);
                 this.registerBean(beanName, singleton);
             }
+        }
+
+        if (singleton == null) {
+            throw new BeansException("bean is null.");
         }
          return singleton;
     }

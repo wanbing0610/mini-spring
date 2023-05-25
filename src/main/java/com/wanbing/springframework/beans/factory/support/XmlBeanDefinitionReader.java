@@ -73,7 +73,7 @@ public class XmlBeanDefinitionReader {
             beanDefinition.setDependsOn(refArray);
 
 
-            this.simpleBeanFactory.registerBeanDefinition(beanDefinition);
+            this.simpleBeanFactory.registerBeanDefinition(beanId ,beanDefinition);
         }
     }
 
