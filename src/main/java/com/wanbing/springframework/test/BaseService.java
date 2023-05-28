@@ -18,5 +18,4 @@ public class BaseService {
         System.out.println("BaseService say hello");
     }
 
-
 }

@@ -29,7 +29,11 @@ public class ClassPathXmlApplicationContext implements BeanFactory , Application
         // 负责解析BeanDefinition
         xmlBeanDefinitionReader.loadBeanDefinitions(resource);
         if(isRefresh){
-            this.beanFactory.refresh();
+            try {
+                refresh();
+            } catch (BeansException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

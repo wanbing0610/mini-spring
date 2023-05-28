@@ -274,13 +274,13 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) {
         this.beanDefinitionMap.put(name, beanDefinition);
         this.beanDefinitionNames.add(name);
-        if( !beanDefinition.isLazyInit() ){
-            try {
-                getBean(name);
-            } catch (BeansException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        if( !beanDefinition.isLazyInit() ){
+//            try {
+//                getBean(name);
+//            } catch (BeansException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 
     @Override

@@ -11,7 +11,7 @@ public class BeanDefinition {
 
     private String scope = SCOPE_SINGLETON;
 
-    private boolean lazyInit = false;
+    private boolean lazyInit = true;
     private String[] dependsOn;
     private ConstructorArgumentValues constructorArgumentValues;
 

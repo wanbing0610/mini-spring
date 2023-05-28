@@ -34,8 +34,11 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
         for( AutowiredAnnotationBeanPostProcessor beanProcessor : getBeanPostProcessors() ){
             beanProcessor.setBeanFactory(this);
             beanProcessor.postProcessBeforeInitialization(result, beanName);
+            if (result == null) {
+                return result;
+            }
         }
-        return null;
+        return result;
     }
 
     @Override

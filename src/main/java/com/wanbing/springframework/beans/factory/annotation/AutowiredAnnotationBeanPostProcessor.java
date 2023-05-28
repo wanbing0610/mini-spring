@@ -14,7 +14,7 @@ public class AutowiredAnnotationBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Class<?> clazz = bean.getClass();
         Field[] fields = clazz.getDeclaredFields();
-        if( fields != null ){
+        if( fields != null && fields.length > 0){
             for( Field field : fields ){
                 boolean isAutowired = field.isAnnotationPresent(Autowired.class);
                 if( isAutowired ){
