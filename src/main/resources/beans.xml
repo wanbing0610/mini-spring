@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id = "bbs" class="com.wanbing.springframework.test.BaseBaseService">
+<!--        <property type="com.wanbing.springframework.test.AServiceImpl" name="as" ref = "aservice"></property>-->
+    </bean>
+
+
+<!--    <bean id = "aservice" class = "com.wanbing.springframework.test.AServiceImpl">-->
+<!--        <constructor-arg type="String" name="name" value="abc"/>-->
+<!--        <constructor-arg type="int" name="level" value="3"/>-->
+<!--        <property type="String" name="property1" value="Someone says"/>-->
+<!--        <property type="String" name="property2" value="Hello World!"/>-->
+<!--        <property type="com.wanbing.springframework.test.BaseService" name="ref1" ref="baseservice"></property>-->
+<!--    </bean>-->
+
+    <bean id = "baseservice" class="com.wanbing.springframework.test.BaseService">
+<!--        <property type="com.wanbing.springframework.test.BaseBaseService" name="bbs" ref="basebaseService" ></property>-->
+    </bean>
+</beans>
