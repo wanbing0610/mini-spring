@@ -26,6 +26,7 @@ public class ClassPathXmlResource implements Resource{
         }
     }
 
+
     @Override
     public boolean hasNext() {
         return this.elementIterator.hasNext();
