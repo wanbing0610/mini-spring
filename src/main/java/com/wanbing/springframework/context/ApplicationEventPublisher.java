@@ -1,8 +1,10 @@
 package com.wanbing.springframework.context;
 
 /**
- * 事件发布
+ * 应用事件发布者
  */
 public interface ApplicationEventPublisher {
     void publishEvent(ApplicationEvent event);
+
+    void addApplicationListener(ApplicationListener listener);
 }

@@ -1,14 +1,15 @@
 package com.wanbing.springframework.beans.factory.annotation;
 
 import com.wanbing.springframework.beans.exception.BeansException;
-import com.wanbing.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import com.wanbing.springframework.beans.factory.BeanFactory;
+import com.wanbing.springframework.beans.factory.config.AbstractAutowireCapableBeanFactory;
 import com.wanbing.springframework.beans.factory.config.BeanPostProcessor;
 
 import java.lang.reflect.Field;
 
 public class AutowiredAnnotationBeanPostProcessor implements BeanPostProcessor {
 
-    private AutowireCapableBeanFactory beanFactory;
+    private BeanFactory beanFactory;
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -36,16 +37,21 @@ public class AutowiredAnnotationBeanPostProcessor implements BeanPostProcessor {
         return bean;
     }
 
-    public AutowireCapableBeanFactory getBeanFactory() {
+    public BeanFactory getBeanFactory() {
         return beanFactory;
     }
 
-    public void setBeanFactory(AutowireCapableBeanFactory beanFactory) {
+    public void setBeanFactory(AbstractAutowireCapableBeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         return null;
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) {
+        this.beanFactory = beanFactory;
     }
 }

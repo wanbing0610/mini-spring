@@ -3,11 +3,12 @@ package com.wanbing.springframework.context;
 import java.util.EventObject;
 
 /**
- * 事件
+ * 应用事件
  */
 public class ApplicationEvent extends EventObject {
 
-    public ApplicationEvent(Object source) {
-        super(source);
-    }
+    private static final long serialVersionUID = 1L;
+    protected String msg = null;
+    public ApplicationEvent(Object arg0) { super(arg0); this.msg = arg0.toString(); }
+
 }

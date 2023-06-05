@@ -1,6 +1,7 @@
 package com.wanbing.springframework.beans.factory.config;
 
 import com.wanbing.springframework.beans.exception.BeansException;
+import com.wanbing.springframework.beans.factory.BeanFactory;
 
 public interface BeanPostProcessor {
     /**
@@ -13,4 +14,6 @@ public interface BeanPostProcessor {
     Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;
 
     Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException;
+
+    void setBeanFactory(BeanFactory beanFactory);
 }

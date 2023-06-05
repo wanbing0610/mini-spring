@@ -1,7 +1,6 @@
 package com.wanbing.springframework.beans.factory.support;
 
 import com.wanbing.springframework.beans.exception.BeansException;
-import com.wanbing.springframework.beans.factory.BeanFactory;
 import com.wanbing.springframework.beans.factory.config.*;
 
 import java.lang.reflect.Constructor;
@@ -14,11 +13,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 抽象bean的工厂方法
+ * 可配置抽象类
  */
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanDefinitionRegistry, BeanFactory{
-    private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
-    private List<String> beanDefinitionNames=new ArrayList<>();
+public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory, BeanDefinitionRegistry{
+    protected Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
+    protected List<String> beanDefinitionNames=new ArrayList<>();
 
     private final Map<String, Object> earlySingletonObjects = new HashMap<String, Object>(16);
 
