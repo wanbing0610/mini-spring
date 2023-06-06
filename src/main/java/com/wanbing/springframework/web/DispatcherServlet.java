@@ -22,7 +22,7 @@ import java.util.Map;
 public class DispatcherServlet extends HttpServlet {
     private String contextConfigLocation;
 
-    private WebApplicationContext webApplicationContext;
+//    private WebApplicationContext webApplicationContext;
 
     // 所有扫描的包名
     private List<String> packageNames = new ArrayList<>();
@@ -51,7 +51,7 @@ public class DispatcherServlet extends HttpServlet {
         System.out.println("servlet init 初始化");
 
         // 获取SpringContext和WebContext
-        this.webApplicationContext = (WebApplicationContext) this.getServletContext().getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+//        this.webApplicationContext = (WebApplicationContext) this.getServletContext().getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 
         // 获取dispatcherServlet的配置信息
         this.contextConfigLocation = config.getInitParameter("contextConfigLocation");
