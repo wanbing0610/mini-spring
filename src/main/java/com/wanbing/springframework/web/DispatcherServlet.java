@@ -22,6 +22,8 @@ import java.util.Map;
 public class DispatcherServlet extends HttpServlet {
     private String contextConfigLocation;
 
+    private WebApplicationContext webApplicationContext;
+
     // 所有扫描的包名
     private List<String> packageNames = new ArrayList<>();
     // 所有扫描的controller全类限定名
@@ -30,9 +32,6 @@ public class DispatcherServlet extends HttpServlet {
     private Map<String, Object> controllerObjs = new HashMap<>();
 
     private Map<String, Class<?>> controllerClasses = new HashMap<>();
-
-
-
 
 
 
@@ -51,6 +50,10 @@ public class DispatcherServlet extends HttpServlet {
         super.init(config);
         System.out.println("servlet init 初始化");
 
+        // 获取SpringContext和WebContext
+        this.webApplicationContext = (WebApplicationContext) this.getServletContext().getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+
+        // 获取dispatcherServlet的配置信息
         this.contextConfigLocation = config.getInitParameter("contextConfigLocation");
         URL xmlPath = null;
         try {
@@ -74,11 +77,11 @@ public class DispatcherServlet extends HttpServlet {
             Class<?> clazz = this.controllerClasses.get(controllerName);
             Object obj = this.controllerObjs.get(controllerName);
             Method[] methods = clazz.getDeclaredMethods();
-            if(methods!=null){
+            if(methods != null){
                 for(Method method : methods){
                     boolean isRequestMapping = method.isAnnotationPresent(RequestMapping.class);
                     if (isRequestMapping){
-                        String methodName = method.getName();
+//                        String methodName = method.getName();
                         String urlmapping = method.getAnnotation(RequestMapping.class).value();
                         this.urlMappingNames.add(urlmapping);
                         this.mappingObjs.put(urlmapping, obj);

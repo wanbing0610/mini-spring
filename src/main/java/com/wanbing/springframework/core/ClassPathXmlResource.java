@@ -16,7 +16,12 @@ public class ClassPathXmlResource implements Resource{
 
     public ClassPathXmlResource(String xmlPath) {
         SAXReader saxReader =  new SAXReader();
-        URL resource = this.getClass().getResource(xmlPath);
+        System.out.println(xmlPath);
+        System.out.println(this.getClass().getClassLoader().getResource(""));
+        System.out.println(ClassPathXmlResource.class.getClassLoader().getResource(""));
+        System.out.println(this.getClass().getClassLoader().getResource(xmlPath));
+
+        URL resource = this.getClass().getClassLoader().getResource(xmlPath);
         try {
             Document document = saxReader.read(resource);
             Element rootElement = document.getRootElement();
