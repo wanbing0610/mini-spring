@@ -26,7 +26,7 @@ public class ContextLoaderListener implements ServletContextListener {
 
     private void initWebApplicationContext(ServletContext servletContext){
         String contextLocation = servletContext.getInitParameter(this.CONFIG_LOCATION_PARAM);
-        AnnotationConfigWebApplicationContext wac = new AnnotationConfigWebApplicationContext(contextLocation);
+        WebApplicationContext wac = new XmlWebApplicationContext(contextLocation);
         wac.setServletContext(servletContext);
         this.context = wac;
         // servlet和spring上下文环境绑定起来

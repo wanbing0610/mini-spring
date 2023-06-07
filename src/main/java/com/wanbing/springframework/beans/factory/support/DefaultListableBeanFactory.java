@@ -3,6 +3,7 @@ package com.wanbing.springframework.beans.factory.support;
 import com.wanbing.springframework.beans.exception.BeansException;
 import com.wanbing.springframework.beans.factory.config.AbstractAutowireCapableBeanFactory;
 import com.wanbing.springframework.beans.factory.config.BeanDefinition;
+import com.wanbing.springframework.beans.factory.config.ConfigurableBeanFactory;
 import com.wanbing.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 import java.util.*;
@@ -13,6 +14,7 @@ import java.util.stream.Stream;
  *
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements ConfigurableListableBeanFactory {
+    private ConfigurableBeanFactory parentBeanFctory;
 
     @Override
     public boolean containsBeanDefinition(String beanName) {
@@ -26,7 +28,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     @Override
     public String[] getBeanDefinitionNames() {
-        return (String[]) this.beanDefinitionNames.toArray();
+        return this.beanDefinitionNames.toArray(new String[this.beanDefinitionNames.size()]);
     }
 
     @Override
@@ -49,6 +51,19 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
            result.put(beanName, (T)bean);
        }
 
+        return result;
+    }
+
+    public void setParent(ConfigurableListableBeanFactory beanFactory) {
+        this.parentBeanFctory = beanFactory;
+    }
+
+    @Override
+    public Object getBean(String beanName) throws BeansException{
+        Object result = super.getBean(beanName);
+        if (result == null) {
+            result = this.parentBeanFctory.getBean(beanName);
+        }
         return result;
     }
 
